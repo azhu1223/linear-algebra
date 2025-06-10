@@ -1,0 +1,8 @@
+C:/Users/Andrew/Desktop/linear-algebra-test/debug/CMakeFiles/LinearAlgebra_lib.dir
+C:/Users/Andrew/Desktop/linear-algebra-test/debug/CMakeFiles/Matrix_lib.dir
+C:/Users/Andrew/Desktop/linear-algebra-test/debug/CMakeFiles/Vector_lib.dir
+C:/Users/Andrew/Desktop/linear-algebra-test/debug/CMakeFiles/MatrixGenerator_lib.dir
+C:/Users/Andrew/Desktop/linear-algebra-test/debug/CMakeFiles/ThreadPool_lib.dir
+C:/Users/Andrew/Desktop/linear-algebra-test/debug/CMakeFiles/main.dir
+C:/Users/Andrew/Desktop/linear-algebra-test/debug/CMakeFiles/ALL_BUILD.dir
+C:/Users/Andrew/Desktop/linear-algebra-test/debug/CMakeFiles/ZERO_CHECK.dir
