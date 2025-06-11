@@ -67,6 +67,63 @@ namespace SingleThreaded {
 
         return {true, mg.generateMatrix<N, M>(std::move(sumArray))};
     }
+
+    template <int N>
+    Result<double> dotProduct(const Vector<N>& v1, const Vector<N>& v2) {
+        double acc = 0.0;
+
+        for (int i = 0; i < N; i++) {
+            acc += v1.get(i) * v2.get(i);
+        }
+
+        return {true, acc}
+    }
+
+    Result<u_ptr<Vector3>> crossProduct(const MatrixGenerator& mg, const Vector3& left, const Vector3& right) {
+        u_ptr<double[]> productArray(new double[3]);
+
+        productArray[0] = left.get(1).second * right.get(2).second - left.get(2).second * right.get(1).second;
+        productArray[1] = left.get(2).second * right.get(0).second - left.get(0).second * right.get(2).second;
+        productArray[2] = left.get(0).second * right.get(1).second - left.get(1).second * right.get(0).second;
+
+        return {true, mg.generateVector<3>(std::move(productArray))};
+    }
+
+    Result<u_ptr<Vector3>> crossProduct(const MatrixGenerator& mg, const Vector2& left, const Vector2& right) {
+        u_ptr<double[]> productArray(new double[3]);
+
+        productArray[0] = 0;
+        
+        productArray[1] = 0;
+
+        productArray[2] = left.get(0).second * right.get(1).second - left.get(1).second * right.get(0).second;
+
+        return {true, mg.generateVector<3>(std::move(productArray))};
+    }
+
+    template <int N>
+    u_ptr<Vector<N>> normalize(const Vector<N>& v) {
+        double vectorLength = v.norm();
+
+        u_ptr<double[]> normalArray(new double[N]);
+
+        for (int i = 0; i < N; i++) {
+            normalArray[i] = get(i) / vectorLength;
+        }
+
+        return Vector<N>(std::move(normalArray));
+    }
+
+    template <int N>
+    u_ptr<Vector<N>> scale(double s, const Vector<N>& v) {
+        u_ptr<double[]> scaledArray(new double[N]);
+
+        for (int i = 0; i < N; i++) {
+            scaledArray[i] = scale * v.get(i);
+        }
+
+        return {true, Vector<N>(std::move(scaledArray))};
+    }
 }
 
 template<int N, int M, int P>

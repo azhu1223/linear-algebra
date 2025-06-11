@@ -9,6 +9,8 @@ public:
     Result<double> get(int n) const;
     bool set(int n, double val);
     int size() const;
+    double normSquare() const;
+    double norm() const;
 
     friend class MatrixGenerator;
 protected:
